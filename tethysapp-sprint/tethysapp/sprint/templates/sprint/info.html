@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+{% extends "sprint/base.html" %}
+
+{% block app_navigation_items %}
+  <li><a href="{% url 'sprint:home' %}">Home</a></li>
+  <li class="active"><a href="{% url 'sprint:info' %}">Info</a></li>
+  <li><a href="{% url 'sprint:map' %}">MAP</a></li>
+  <li><a href="{% url 'sprint:gizmo' %}">Gizmo</a></li>
+{% endblock %}
+
+{% block app_content %}
+<h2>Information about SPRINT</h2>
+<p>Creator: Mr. Egbert</p>
+<p>Date: June 1, 2017</p>
+<p>Location: Provo, UT</p>
+{% endblock %}
+</body>
+</html>
+

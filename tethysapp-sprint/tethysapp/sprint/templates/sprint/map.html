@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MAP</title>
+</head>
+<body>
+{% extends "sprint/base.html" %}
+
+{% block app_navigation_items %}
+  <li><a href="{% url 'sprint:home' %}">Home</a></li>
+  <li><a href="{% url 'sprint:info' %}">Info</a></li>
+  <li class="active"><a href="{% url 'sprint:map' %}">MAP</a></li>
+  <li><a href="{% url 'sprint:gizmo' %}">Gizmo</a></li>
+{% endblock %}
+{% block app_content %}
+<h1>My Map</h1>
+<div id="map" style="height: 100%; width: 100%;"></div>
+{% endblock %}
+{% load staticfiles %}
+{% block content_dependent_styles %}
+    {{ block.super }}
+    <link href="{% static 'sprint/css/map.css' %}" rel="stylesheet"/>
+{% endblock %}
+</body>
+</html>

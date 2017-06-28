@@ -1,0 +1,38 @@
+{% extends "tethys_apps/app_base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}- {{ tethys_app.name }}{% endblock %}
+
+{% block app_icon %}
+  {# The path you provided in your app.py is accessible through the tethys_app.icon context variable #}
+  <img src="{% static tethys_app.icon %}">
+{% endblock %}
+
+{# The name you provided in your app.py is accessible through the tethys_app.name context variable #}
+{% block app_title %}{{ tethys_app.name }}{% endblock %}
+
+{% block app_navigation_items %}
+  <li class="active"><a href="{% url 'sprint:home' %}">Home</a></li>
+  <li><a href="{% url 'sprint:info' %}">Info</a></li>
+  <li><a href="{% url 'sprint:map' %}">MAP</a></li>
+  <li><a href="{% url 'sprint:gizmo' %}">Gizmo</a></li>
+{% endblock %}
+
+{% block app_content %}
+{% endblock %}
+
+{% block app_actions %}
+{% endblock %}
+
+{% block content_dependent_styles %}
+  {{ block.super }}
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+  <link href="{% static 'sprint/css/main.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="https://js.arcgis.com/3.16/"></script>
+  <script src="{% static 'sprint/js/main.js' %}" type="text/javascript"></script>
+{% endblock %}

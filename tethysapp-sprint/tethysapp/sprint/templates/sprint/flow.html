@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flow</title>
+</head>
+<body>
+
+{% extends "sprint/base.html" %}
+
+{% block app_navigation_items %}
+  <li class="active"><a href="{% url 'sprint:gizmo' %}">Back to Gizmo</a></li>
+{% endblock %}
+
+{% load tethys_gizmos %}
+
+{% block app_content %}
+  <h5>Parameters:</h5>
+  <ul>
+    <li>Runoff coefficient: {{ runoff }}</li>
+    <li>Rainfall Intensity: {{ intensity }} in/hr</li>
+    <li>Area: {{ area }} acre</li>
+  </ul>
+  <h4>The flow is: {{ flow }} cfs.</h4>
+{% endblock %}
+
+</body>
+</html>

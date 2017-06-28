@@ -1,0 +1,18 @@
+{% extends "sprint/base.html" %}
+{% load tethys_gizmos %}
+{% block app_navigation_items %}
+  <li><a href="{% url 'sprint:home' %}">Home</a></li>
+  <li><a href="{% url 'sprint:info' %}">Info</a></li>
+  <li><a href="{% url 'sprint:map' %}">MAP</a></li>
+  <li class="active"><a href="{% url 'sprint:gizmo' %}">Gizmo</a></li>
+{% endblock %}
+
+{% block app_content %}
+    <form id = "flow-form" action="{% url 'sprint:flow' %}" method="post">
+        {% csrf_token %}
+        {% gizmo text_input text_input1 %}
+        {% gizmo text_input text_input2 %}
+        {% gizmo text_input text_input3 %}
+    </form>
+    {% gizmo button single_button %}
+{% endblock %}
